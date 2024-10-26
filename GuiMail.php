@@ -10,7 +10,7 @@ if (isset($_SESSION["mail"])) {
     unset($_SESSION["mail"]);
 }
 ?>
-<h3>Gửi mail có đính kèm file</h3>
+
 <div>
   <form action="XuLyGuiMail.php" name="SendMail" method="post" enctype="multipart/form-data">
     <div>Người gửi:</div>

@@ -19,19 +19,13 @@ include "includes/db_bangiay.inc";
     <?php include "danhsachsanpham.php"; ?>
 </div>
 
-<div class="container-fluid fruite py-3">
-    <div class="container ">
-        <h3>Xu hướng thời trang</h3>
-        <?php include "danhsachsanphamxuhuong.php"; ?>
-    </div>
-</div>
 
-<div class="container-fluid fruite py-3">
-    <div class="container ">
-        <h3>Mua sắp theo môn thể thao</h3>
-        <?php include "danhsachsanphammonthethao.php"; ?>
-    </div>
-</div>
+<?php include "danhsachsanphamxuhuong.php"; ?>
+
+
+
+<?php include "danhsachsanphammonthethao.php"; ?>
+
 <div class="container-fluid py-3 ">
     <div class="container py-5">
         <div class="video-abc">

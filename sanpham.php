@@ -9,6 +9,8 @@ session_start();
 
 <?php include "danhsachsanpham.php" ?>
 
+<?php include "danhsachsanphammonthethao.php"?>
+
 <?php
 $content = ob_get_clean();
 include "includes/LayoutBanGiay.php";

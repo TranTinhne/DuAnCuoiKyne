@@ -13,7 +13,7 @@ $total_products = $result_count->fetch_assoc()['total'];
 $total_pages = ceil($total_products / $products_per_page);
 
 // Lấy trang hiện tại từ GET (mặc định là 1)
-$current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$current_page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
 $current_page = max(1, min($current_page, $total_pages)); // Đảm bảo trang hợp lệ
 
 // Tính toán OFFSET
@@ -44,8 +44,10 @@ if ($result_categories->num_rows > 0) {
 <style>
     .fruite-img img {
         width: 100%;
-        height: 200px; /* Chiều cao cố định */
-        object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+        height: 200px;
+        /* Chiều cao cố định */
+        object-fit: cover;
+        /* Đảm bảo hình ảnh không bị méo */
     }
 </style>
 <div class="container py-5">
@@ -63,7 +65,8 @@ if ($result_categories->num_rows > 0) {
                     </li>
                     <?php foreach ($categories as $category_id => $category_name): ?>
                         <li class="nav-item">
-                            <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-<?php echo $category_id; ?>">
+                            <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill"
+                                href="#tab-<?php echo $category_id; ?>">
                                 <span class="text-dark" style="width: 130px;"><?php echo $category_name; ?></span>
                             </a>
                         </li>
@@ -78,27 +81,34 @@ if ($result_categories->num_rows > 0) {
                     foreach ($products as $product):
                         ?>
                         <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div class="rounded position-relative fruite-item">
-                                <div class="fruite-img">
-                                    <img src="img/<?php echo $product['hinhanh']; ?>" class="img-fluid w-100 rounded-top" alt="">
-                                </div>
-                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">
-                                    <?php echo $categories[$product['MaLoaiSanPham']]; ?>
-                                </div>
-                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                <h4>
+                                    <div class="rounded position-relative fruite-item">
+                                        <div class="fruite-img">
+                                            <a href="chitietsp.php?MaSanPham=<?php echo $product['MaSanPham']; ?>">
+                                                <img src="img/<?php echo $product['hinhanh']; ?>"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                            style="top: 10px; left: 10px;">
+                                            <?php echo $categories[$product['MaLoaiSanPham']]; ?>
+                                        </div>
+                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h4>
                                                 <a href="chitietsp.php?MaSanPham=<?php echo $product['MaSanPham']; ?>">
                                                     <?php echo $product['TenSanPham']; ?>
                                                 </a>
                                             </h4>
-                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                        <p class="text-dark fs-5 fw-bold mb-0"><?php echo $product['Gia']; ?> </p>
-                                        <a href="ThemVaoGioHang.php?id=<?php echo $product['MaSanPham']; ?>&url=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="btn border border-secondary rounded-pill px-3 text-primary">
-                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ</a>
+                                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                                <p class="text-dark fs-5 fw-bold mb-0"><?php echo $product['Gia']; ?> </p>
+                                                <a href="ThemVaoGioHang.php?id=<?php echo $product['MaSanPham']; ?>&url=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>"
+                                                    class="btn border border-secondary rounded-pill px-3 text-primary">
+                                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+
                         <?php
                     endforeach;
                     ?>
@@ -114,24 +124,32 @@ if ($result_categories->num_rows > 0) {
                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                     <div class="rounded position-relative fruite-item">
                                         <div class="fruite-img">
-                                            <img src="img/<?php echo $product['hinhanh']; ?>" class="img-fluid w-100 rounded-top" alt="">
+                                            <a href="chitietsp.php?MaSanPham=<?php echo $product['MaSanPham']; ?>">
+                                                <img src="img/<?php echo $product['hinhanh']; ?>"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </a>
                                         </div>
-                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">
+                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                            style="top: 10px; left: 10px;">
                                             <?php echo $categories[$product['MaLoaiSanPham']]; ?>
                                         </div>
                                         <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                        <h4>
+                                            <h4>
                                                 <a href="chitietsp.php?MaSanPham=<?php echo $product['MaSanPham']; ?>">
                                                     <?php echo $product['TenSanPham']; ?>
                                                 </a>
                                             </h4>
                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                <p class="text-dark fs-5 fw-bold mb-0"><?php echo $product['Gia']; ?>/ VND </p>
-                                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ</a>
+                                                <p class="text-dark fs-5 fw-bold mb-0"><?php echo $product['Gia']; ?> </p>
+                                                <a href="ThemVaoGioHang.php?id=<?php echo $product['MaSanPham']; ?>&url=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>"
+                                                    class="btn border border-secondary rounded-pill px-3 text-primary">
+                                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <?php
                             endif;
                         endforeach;

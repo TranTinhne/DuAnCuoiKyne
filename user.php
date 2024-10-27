@@ -70,7 +70,6 @@ session_start(); ?>
     </div>
     <div class="col-md-7">
      <?php include "thongtincanhan.php" ?>
-     <?php include "doimatkhau.php" ?>
     </div>
 
 

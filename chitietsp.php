@@ -107,7 +107,7 @@ if (isset($_GET['MaSanPham'])) {
                     alt="<?php echo htmlspecialchars($book['TenSanPham']); ?>">
             </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 Tensp-i">
             <div class="Tensp-in">
                 <h4 class="tensanpham-ch">
                     <?php echo htmlspecialchars($book['TenSanPham']); ?>

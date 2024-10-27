@@ -69,7 +69,7 @@ session_start(); ?>
       </ul>
     </div>
     <div class="col-md-7">
-     <?php include "thongtincanhan.php" ?>
+      <?php include 'thongtincanhan.php' ?>
     </div>
 
 

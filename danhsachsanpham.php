@@ -99,7 +99,7 @@ if ($result_categories->num_rows > 0) {
                                                 </a>
                                             </h4>
                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                <p class="text-dark fs-5 fw-bold mb-0"><?php echo $product['Gia']; ?> </p>
+                                            <p class="text-dark fs-5 fw-bold mb-0"><?php echo number_format($product['Gia'], 0, ',', '.') . ' VND'; ?></p>
                                                 <a href="ThemVaoGioHang.php?id=<?php echo $product['MaSanPham']; ?>&url=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>"
                                                     class="btn border border-secondary rounded-pill px-3 text-primary">
                                                     <i class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ

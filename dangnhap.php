@@ -4,7 +4,7 @@ include 'includes/db_bangiay.inc';
 session_start();
 $thongbao = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $username = $_POST['TenDN'];
+  $username = $_POST['TaiKhoan'];
   $password = $_POST['MatKhau'];
   if (empty($username) || empty($password)) {
     $thongbao = "Tên đăng nhập và mật khẩu không được trống.";
@@ -17,12 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION['user'] = mysqli_fetch_assoc($result);
       if ($remember) {
         $expire = time() + 60 * 60 * 24 * 30;
-        setcookie('TenDN', $username, $expire);
+        setcookie('TaiKhoan', $username, $expire);
         setcookie('MatKhau', $password, $expire);
       } else {
-        if (isset($_COOKIE['TenDN'])) {
+        if (isset($_COOKIE['TaiKhoan'])) {
           $expire = time() - 60 * 60 * 24;
-          setcookie('TenDN', '', $expire);
+          setcookie('TaiKhoan', '', $expire);
           setcookie('MatKhau', '', $expire);
         }
       }
@@ -47,8 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="form">
           <form action="dangnhap.php" method="POST">
-            <input type="text" name="TenDN" placeholder="Tên đăng nhập:" value="<?php if (isset($_COOKIE['TenDN']))
-              echo $_COOKIE['TenDN'] ?>" required />
+            <input type="text" name="TaiKhoan" placeholder="Tên đăng nhập:" value="<?php if (isset($_COOKIE['TenDN']))
+              echo $_COOKIE['TaiKhoan'] ?>" required />
               <input type="password" name="MatKhau" placeholder="Mật Khẩu" value="<?php if (isset($_COOKIE['MatKhau']))
               echo $_COOKIE['MatKhau'] ?>" required />
               <input type="checkbox" name="remember" id="remember" value="1" <?php if (isset($_COOKIE['TenDN']))

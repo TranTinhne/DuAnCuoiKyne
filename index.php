@@ -21,6 +21,7 @@ include "includes/db_bangiay.inc";
 
 <div class="container-fluid fruite py-3">
     <div class="container ">
+        <h3>Xu hướng thời trang</h3>
         <?php include "danhsachsanphamxuhuong.php"; ?>
     </div>
 </div>

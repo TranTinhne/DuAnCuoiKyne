@@ -4,12 +4,12 @@ session_start();
 ob_start();
 
 // Kiểm tra xem người dùng đã đăng nhập chưa 
-if (!isset($_SESSION['TaiKhoan'])) {
+if (!isset($_SESSION['user'])) {
 header(header: "Location: dangnhap.php");
 exit();
 }
 // Lấy thông tin người dùng từ
-$khachHang = $_SESSION['TaiKhoan']; 
+$khachHang = $_SESSION['user']; 
 $hoTen = $khachHang['HoTen'];
 $soDienThoai = $khachHang['DienThoai'];
 $email = $khachHang['Email'];

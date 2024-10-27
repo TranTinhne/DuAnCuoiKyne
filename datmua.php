@@ -9,7 +9,7 @@ header(header: "Location: dangnhap.php");
 exit();
 }
 // Lấy thông tin người dùng từ
-$khachHang = $_SESSION['user']; 
+$khachHang = $_SESSION['TaiKhoan']; 
 $hoTen = $khachHang['HoTen'];
 $soDienThoai = $khachHang['DienThoai'];
 $email = $khachHang['Email'];

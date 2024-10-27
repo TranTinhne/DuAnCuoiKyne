@@ -3,35 +3,27 @@
 include "includes/db_bangiay.inc";
 ?>
 
-
-    <div class="Sport">
-        <div class="g-scrolling-carousel carousel-three Sport-inl ">
-            <div class="itemst">
-                <?php
-                // Truy vấn dữ liệu từ bảng sanpham
-                $sql = "SELECT hinhanh, TenSanPham, Gia FROM sanpham";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    // Lặp qua từng hàng dữ liệu
-                    while($row = $result->fetch_assoc()) {
-                        
-                        echo '<a href="chitietsp.php" . target="_blank" >';
-                        echo '<img src="img/' . $row["hinhanh"] . '" alt="' . $row["TenSanPham"] . '">';
-                        echo '<div class="item-text">';
-                        echo '<p>' . $row["TenSanPham"] . '</p>';
-                        echo '<p class="price">' . number_format($row["Gia"], 0, ',', '.') . '₫</p>';
-                        echo '</div>';
-                        echo '</a>';
-                    }
-                } else {
-                    echo "Không có sản phẩm nào.";
+<div>
+    <div class="g-scrolling-carousel carousel-three s-bsport">
+        <div class="items sbsport">
+            <?php
+            // Truy vấn dữ liệu từ bảng sanpham
+            $sql = "SELECT id, hinhanh, mota, trangthai FROM shopbysport WHERE trangthai = 'active'";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="carousel-item sb-sport">';
+                    echo '<img src="img/' . $row["hinhanh"] . '" class="img-fluid" alt="Slide">';
+                    echo '<a href="#" class="btn px-4 py-2 text-white rounded txt">' . $row["mota"] . '</a>';
+                    echo '</div>';
                 }
+            } else {
+                echo "0 results";
+            }
 
-                // Đóng kết nối
-                $conn->close();
-                ?>
-            </div>
+            // Đóng kết nối
+            $conn->close();
+            ?>
         </div>
     </div>
-
+</div>

@@ -12,7 +12,7 @@ include 'includes/db_bangiay.inc';
 // Kiểm tra nếu người dùng đã đăng nhập
 if (!isset($_SESSION['TaiKhoan'])) {
     echo "<script>alert('Vui lòng đăng nhập trước khi đặt hàng.');</script>";
-    echo "<script>window.location.href = 'dangnhap.php';</script>";
+    echo "<script>window.location.href ='dangnhap.php';</script>";
     exit();
 }
 // Lấy thông tin người dùng từ session

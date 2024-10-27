@@ -68,8 +68,9 @@ session_start(); ?>
         </li>
       </ul>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-7">
      <?php include "thongtincanhan.php" ?>
+     <?php include "doimatkhau.php" ?>
     </div>
 
 

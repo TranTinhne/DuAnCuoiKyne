@@ -51,63 +51,29 @@ if (isset($_SESSION['user'])) {
   <div class="row">
       <div class="detail_acc">
         <div class="fs20 mb-4">
-          <strong>Thông Tin Tài Khoản</strong>
+          <strong>Đổi mật khẩu</strong>
         </div>
         <div class="mb-4">
           <div class="row">
             <div class="col-md-9">
               <div class="mb-2 cl66 fs13">
-                <strong>User Name</strong>
+                <strong>Mật khẩu</strong>
               </div>
               <div class="mb-3">
-                <input type="text" class="txt_cm" disabled value="<?php echo $kh["HoTen"] ?>">
+                <input type="text" class="txt_cm" value="<?php echo $kh["MatKhau"] ?>">
               </div>
               <div class="mb-2 cl66 fs13">
-                <strong>Email</strong>
+                <strong>Mật khẩu mới</strong>
               </div>
               <div class="mb-3">
-                <input type="text" class="txt_cm" disabled value="T<?php echo $kh["Email"] ?>">
-              </div>
-              <div class="mb-2 cl66 fs13">
-                <strong>Tiền</strong>
-              </div>
-              <div class="mb-3">
-                <input type="text" class="txt_cm" disabled value="0">
+                <input type="text" class="txt_cm"  value="T<?php echo $kh["Email"] ?>">
               </div>
               <div class="fs20 mb-4">
                 <strong>Thông Tin Cá Nhân</strong>
               </div>
-              <div class="mb-4">
-                <form method="post"></form>
-                <div class="row">
-                  <input type="hidden" id="avatar" name="avatar" value>
-                  <input type="hidden" id="inputDelImage" name="inputDelImage" value>
+              
 
-                  <div class="col-md-9">
-                    <div class="mb-2 cl66 fs13">
-                      <strong>Họ</strong>
-                    </div>
-                    <div class="mb-3">
-                      <input type="text" placeholder="Họ" class="txt_cm" id="last_name" name="last_name" value>
-                    </div>
-                    <div class="mb-2 cl66 fs13">
-                      <strong>Tên</strong>
-                    </div>
-                    <div class="mb-3">
-                      <input type="text" placeholder="Tên" class="txt_cm" id="last_name" name="last_name" value>
-                    </div>
-                    <div class="mb-2 ">
-                      <div class="d-flex align-items-center "> 
-                        <strong class="cl66 fs13 mr-3">Giới Tính</strong>
-                        <label class="d-flex align-items-center mr-4"> 
-                          <input type="radio" class="rd_gen" name="gender"
-                            checked=""> Con Trai</label>
-                        <label class="d-flex align-items-center"> 
-                          <input type="radio" name="gender" class="rd_gen"> Con
-                          Gái</label>
-                      </div>
-                    </div>
-                  </div>
+                 
                 </div>
                 <button class="bg-secondary text-secondary-foreground hover:bg-secondary/80 p-2 rounded">Lưu</button>
                 </d>

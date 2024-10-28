@@ -37,8 +37,8 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Các trang</a>
                         <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                            <a href="cart.html" class="dropdown-item">Giỏ hàng</a>
-                            <a href="checkout.html" class="dropdown-item">Thanh toán hóa đơn</a>
+                            <a href="giohang.php" class="dropdown-item">Giỏ hàng</a>
+                            <a href="datmua.php" class="dropdown-item">Thanh toán hóa đơn</a>
                         </div>
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Liên hệ</a>

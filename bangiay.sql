@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2024 at 06:48 PM
+-- Generation Time: Oct 28, 2024 at 02:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,6 +24,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `chitietdathang`
+--
+
+CREATE TABLE `chitietdathang` (
+  `MaDonHang` int(11) NOT NULL,
+  `MaSanPham` int(11) NOT NULL,
+  `SoLuong` int(11) DEFAULT NULL CHECK (`SoLuong` > 0),
+  `DonGia` decimal(9,2) DEFAULT NULL CHECK (`DonGia` >= 0)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `chitietdathang`
+--
+
+INSERT INTO `chitietdathang` (`MaDonHang`, `MaSanPham`, `SoLuong`, `DonGia`) VALUES
+(3, 3, 14, 1500000.00),
+(4, 3, 14, 1500000.00),
+(5, 3, 14, 1500000.00),
+(6, 3, 14, 1500000.00),
+(7, 3, 2, 1500000.00),
+(7, 6, 1, 3100000.00),
+(7, 8, 1, 1100000.00),
+(8, 3, 1, 1500000.00);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `dondathang`
 --
 
@@ -35,6 +62,19 @@ CREATE TABLE `dondathang` (
   `NgayDat` date NOT NULL,
   `NgayGiao` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `dondathang`
+--
+
+INSERT INTO `dondathang` (`MaDonDatHang`, `MaNguoiDung`, `DaThanhToan`, `TinhTrangGiaoHang`, `NgayDat`, `NgayGiao`) VALUES
+(2, 6, 0, 'chua_giao', '2024-10-28', '2024-11-04'),
+(3, 6, 0, 'chua_giao', '2024-10-28', '2024-11-04'),
+(4, 6, 0, 'chua_giao', '2024-10-28', '2024-11-04'),
+(5, 6, 0, 'chua_giao', '2024-10-28', '2024-11-04'),
+(6, 6, 0, 'chua_giao', '2024-10-28', '2024-11-04'),
+(7, 6, 0, 'chua_giao', '2024-10-28', '2024-11-04'),
+(8, 6, 0, 'chua_giao', '2024-10-28', '2024-11-04');
 
 -- --------------------------------------------------------
 
@@ -298,6 +338,13 @@ INSERT INTO `slider` (`id`, `hinhanh`, `mota`, `trangthai`) VALUES
 --
 
 --
+-- Indexes for table `chitietdathang`
+--
+ALTER TABLE `chitietdathang`
+  ADD PRIMARY KEY (`MaDonHang`,`MaSanPham`),
+  ADD KEY `MaSanPham` (`MaSanPham`);
+
+--
 -- Indexes for table `dondathang`
 --
 ALTER TABLE `dondathang`
@@ -373,7 +420,7 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT for table `dondathang`
 --
 ALTER TABLE `dondathang`
-  MODIFY `MaDonDatHang` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MaDonDatHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `feedback`

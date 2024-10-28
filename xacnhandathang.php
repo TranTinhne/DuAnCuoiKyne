@@ -1,8 +1,8 @@
 <?php
 session_start();
-require 'PHPMailer-master/src/PHPMailer.php';
-require 'PHPMailer-master/src/Exception.php';
-require 'PHPMailer-master/src/SMTP.php';
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -10,13 +10,13 @@ use PHPMailer\PHPMailer\Exception;
 include 'includes/db_bangiay.inc';
 
 // Kiểm tra nếu người dùng đã đăng nhập
-if (!isset($_SESSION['TaiKhoan'])) {
+if (!isset($_SESSION['user'])) {
     echo "<script>alert('Vui lòng đăng nhập trước khi đặt hàng.');</script>";
     echo "<script>window.location.href ='dangnhap.php';</script>";
     exit();
 }
 // Lấy thông tin người dùng từ session
-$khachHang = $_SESSION['TaiKhoan'];
+$khachHang = $_SESSION['user'];
 $makh = $khachHang['MaNguoiDung'];
 $emailKhachHang = $khachHang['Email'];
 
@@ -33,7 +33,7 @@ try {
     $ngayDat = date("Y-m-d");
     $ngaygiaohang = date("Y-m-d", strtotime("+7 days")); // Giả sử ngày giao hàng là 7 ngày sau ngày đặt
 
-    $sql = "INSERT INTO dondathang (DaThanhToan, TinhTrangGiaoHang, NgayDat, NgayGiao, MaKH)
+    $sql = "INSERT INTO dondathang (DaThanhToan, TinhTrangGiaoHang, NgayDat, NgayGiao, MaNguoiDung)
             VALUES (0, 1, '$ngayDat', '$ngaygiaohang', '$makh')";
     $conn->query($sql);
 
@@ -44,7 +44,7 @@ try {
         $soluong = $product['soluong'];
         $dongia = $product['gia'];
         // Sửa lại truy vấn để thêm đúng dữ liệu vào các cột của bảng chitietdathang
-        $sql = "INSERT INTO chitietdathang (MaDonHang, MaSach, SoLuong, DonGia)
+        $sql = "INSERT INTO chitietdathang (MaDonHang, MaSanPham, SoLuong, DonGia)
                 VALUES ('$maDonHang', '$idproduct', '$soluong', '$dongia')";
         $conn->query($sql);
     }
@@ -57,13 +57,13 @@ try {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com'; // Đặt máy chủ SMTP để gửi qua
         $mail->SMTPAuth = true;
-        $mail->Username = 'voquangthanh2004@gmail.com'; // Tên đăng nhập SMTP
-        $mail->Password = 'yaabdwynfprvipkt'; // Mật khẩu SMTP
+        $mail->Username = 'trantinh28012004@gmail.com'; // Tên đăng nhập SMTP
+        $mail->Password = 'tobpddmeamkiyepq'; // Mật khẩu SMTP
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         // Người nhận
-        $mail->setFrom('voquangthanh2004@gmail.com', 'H&T.Paraneit');
+        $mail->setFrom('trantinh28012004@gmail.com', 'H&T.Paraneit');
         $mail->addAddress($emailKhachHang); // Địa chỉ email của khách hàng
 
         // Nội dung
